@@ -1,5 +1,5 @@
-<h1>商品新規登録</h1>
-<%= form_with model: @item, url: admin_items_path do |f| %>
+<h1>商品編集</h1>
+<%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>
   <h2>商品画像</h2>
     <%= f.file_field :image, accept: "image/*" %>
   <h2>商品名</h2>
@@ -10,5 +10,5 @@
     <%= f.number_field :price%>
   <h2>販売ステータス</h2>
     <%= f.select :is_active ,[['販売中',true],['販売停止中',false]] %>
-  <%= f.submit '新規登録' %>
-<% end %>
+  <%= f.submit '変更を保存' %>
+  <% end %>
