@@ -1,7 +1,10 @@
 class Item < ApplicationRecord
-  
+
+  has_many :cart_items, dependent: :destroy
+  has_many :customers, through: :cart_item
+
   has_one_attached :image
-  
+
   def get_image
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
@@ -9,9 +12,9 @@ class Item < ApplicationRecord
     end
     image
   end
-  
+
   def add_tax_price
         (price * 1.1).round
   end
-  
+
 end
