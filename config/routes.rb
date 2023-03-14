@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     get 'homes/about'
     get 'customers/my_page' => 'customers#show', as: 'my_page'
     resources :items, only: [:index,:show]
-    resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
+    resources :cart_items, only: [:index, :destroy, :update, :destroy_all, :create]
     resources :customers, only: [:edit, :unsubscribe, :update, :withdraw]
   end
   namespace :admin do
